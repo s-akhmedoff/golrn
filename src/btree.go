@@ -5,16 +5,16 @@ import (
 	"math/rand"
 )
 
-var height int = 10
+var depth int = 10
 
-//Tree is struct
+//Tree - Binary Tree Type Structure
 type Tree struct {
 	Right *Tree
 	Value int
 	Left  *Tree
 }
 
-//New - new binary tree
+//New - Function To Create New Binary Tree Recursively
 func New(k int) *Tree {
 
 	var t *Tree
@@ -33,13 +33,13 @@ func New(k int) *Tree {
 		return t
 	}
 
-	for _, v := range rand.Perm(height) {
+	for _, v := range rand.Perm(depth) {
 		t = f(t, (1+v)*k)
 	}
 	return t
 }
 
-// Walk through Tree
+//Walk - Function To Recursively Walk And Read Values To Channel From Binary Tree
 func Walk(t *Tree, ch chan int) {
 	if t != nil {
 		Walk(t.Left, ch)
@@ -48,7 +48,7 @@ func Walk(t *Tree, ch chan int) {
 	}
 }
 
-//Same - is 2 trees is equal
+//Same - Function To Compare Two Tree By Their Values
 func Same(t1, t2 *Tree) bool {
 
 	if t1 == nil || t2 == nil {
@@ -60,7 +60,7 @@ func Same(t1, t2 *Tree) bool {
 	go Walk(t1, ch1)
 	go Walk(t2, ch2)
 
-	for i := 0; i < height; i++ {
+	for i := 0; i < depth; i++ {
 		if <-ch1 != <-ch2 {
 			return false
 		}
@@ -69,7 +69,7 @@ func Same(t1, t2 *Tree) bool {
 	return true
 }
 
-//String - formatter
+//String - Formatting Method
 func (t *Tree) String() string {
 	if t == nil {
 		return "()"
@@ -87,7 +87,7 @@ func (t *Tree) String() string {
 
 func main() {
 
-	ch1 := make(chan int, height)
+	ch1 := make(chan int)
 	tree1 := New(2)
 
 	go Walk(tree1, ch1)
