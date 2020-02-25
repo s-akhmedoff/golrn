@@ -15,7 +15,20 @@ type Tree struct {
 
 // Walk through Tree
 func Walk(t *tree.Tree, ch chan int) {
+	if t == nil {
+		fmt.Println()
+	}
 
+	if t.Right != nil {
+		Walk(t.Left, ch)
+	}
+
+	ch <- t.Value
+	defer close(ch)
+
+	if t.Left != nil {
+		Walk(t.Left, ch)
+	}
 }
 
 func main() {
