@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"strconv"
-
+	"strings"
 )
+
 type IPAddr [4]byte
 
 func (ip IPAddr) String() string {
@@ -18,10 +18,10 @@ func (ip IPAddr) String() string {
 	return strings.Join(rt, ".")
 }
 
-func main() {
+func Stringer() {
 	hosts := map[string]IPAddr{
 		"loopback": {127, 0, 0, 1},
-		"dns": {8,8,8,8},
+		"dns":      {8, 8, 8, 8},
 	}
 
 	for name, ip := range hosts {

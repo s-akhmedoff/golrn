@@ -43,7 +43,7 @@ func Crawl(url string, depth int, fetcher Fetcher) {
 	return
 }
 
-func main() {
+func WebCrawler() {
 	wg.Add(1)
 	go Crawl("https://golang.org/", 4, fetcher)
 	wg.Wait()
