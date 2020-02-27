@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// Fetcher - init type
 type Fetcher interface {
 	// Fetch returns the body of URL and
 	// a slice of URLs found on that page.
@@ -43,6 +44,7 @@ func Crawl(url string, depth int, fetcher Fetcher) {
 	return
 }
 
+// WebCrawler - init func
 func WebCrawler() {
 	wg.Add(1)
 	go Crawl("https://golang.org/", 4, fetcher)

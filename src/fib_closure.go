@@ -13,6 +13,7 @@ func fibonacci() func() int {
 	}
 }
 
+// Fib - init func
 func Fib() {
 	f := fibonacci()
 	for i := 0; i < 10; i++ {

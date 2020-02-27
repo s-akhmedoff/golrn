@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// IPAddr - type
 type IPAddr [4]byte
 
 func (ip IPAddr) String() string {
@@ -18,6 +19,7 @@ func (ip IPAddr) String() string {
 	return strings.Join(rt, ".")
 }
 
+// Stringer - init func
 func Stringer() {
 	hosts := map[string]IPAddr{
 		"loopback": {127, 0, 0, 1},
