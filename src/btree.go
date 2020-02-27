@@ -51,10 +51,6 @@ func Walk(t *Tree, ch chan int) {
 //Same - is 2 trees is equal
 func Same(t1, t2 *Tree) bool {
 
-	if t1 == nil || t2 == nil {
-		return false
-	}
-
 	ch1, ch2 := make(chan int), make(chan int)
 
 	go Walk(t1, ch1)
@@ -96,4 +92,7 @@ func main() {
 
 	fmt.Println(Same(New(2), New(2))) // true
 	fmt.Println(Same(New(1), New(2))) // false
+	fmt.Println(Same(New(10), New(5))) // false
+	fmt.Println(Same(New(5), New(5))) // true
+	fmt.Println(Same(New(3), New(9))) // false
 }
