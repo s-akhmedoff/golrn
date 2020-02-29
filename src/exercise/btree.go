@@ -1,4 +1,4 @@
-package main
+package exercise
 
 import (
 	"fmt"
@@ -14,6 +14,7 @@ type Tree struct {
 	Left  *Tree
 }
 
+//	@TODO: Update
 //New - new binary tree
 func New(k int) *Tree {
 
@@ -81,7 +82,7 @@ func (t *Tree) String() string {
 	return "(" + s + ")"
 }
 
-func main() {
+func BTree() {
 
 	ch1 := make(chan int, height)
 	tree1 := New(2)
@@ -90,9 +91,9 @@ func main() {
 
 	fmt.Println(tree1)
 
-	fmt.Println(Same(New(2), New(2))) // true
-	fmt.Println(Same(New(1), New(2))) // false
+	fmt.Println(Same(New(2), New(2)))  // true
+	fmt.Println(Same(New(1), New(2)))  // false
 	fmt.Println(Same(New(10), New(5))) // false
-	fmt.Println(Same(New(5), New(5))) // true
-	fmt.Println(Same(New(3), New(9))) // false
+	fmt.Println(Same(New(5), New(5)))  // true
+	fmt.Println(Same(New(3), New(9)))  // false
 }
