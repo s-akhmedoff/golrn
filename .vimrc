@@ -41,5 +41,7 @@ set novisualbell
 set number
 
 set noshowmode
+set nobackup
+set noswapfile
 
 filetype indent on
