@@ -1,11 +1,11 @@
 package main
 
-import "var_func"
+import "lessons"
 
 func main() {
 	//exercise.Fib()
 	//exercise.Stringer()
 	//exercise.BTree()
 	//exercise.WebCrawler()
-	var_func.Func()
+	lessons.Func()
 }

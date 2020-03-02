@@ -1,4 +1,4 @@
-package var_func
+package lessons
 
 import (
 	"fmt"
