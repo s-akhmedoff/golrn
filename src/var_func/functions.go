@@ -1,24 +1,53 @@
 package var_func
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
-func repaet(a int, e error) (int, error) {
-	return a, e
+func _(a int, b int) int {
+	return a + b
 }
 
-func temp(some ...int) ([]int) {
-	a := make([]int, 3)
+func _(a, b int) (int, int) {
+	return b, a
+}
 
-	a = some[:2]
-
-	for i := 1; i != 0; i-- {
-		a[i] = i
+func _(vars ...int) (sum int) {
+	for _, v := range vars {
+		sum += v
 	}
 
-	return some
+	return
 }
 
-func Function() {
-	fmt.Println(repaet(3, nil))
-	fmt.Println(temp(1,2,3,4))
+func _(str string, num int) string {
+	return str + strconv.Itoa(num)
+}
+
+func _(variable float64) int {
+	return func(a float64) int {
+		return int(a)
+	}(variable)
+}
+
+func factorial(n int) int {
+	if n == 0 {
+		return 1
+	}
+
+	return n * factorial(n-1)
+}
+
+func workWithPointer(a *int) *int {
+	temp := a
+	*temp += *a
+	return temp
+}
+
+func Func() {
+	factorial(10)
+	a := 3
+	fmt.Println(*workWithPointer(&a))
+
 }
