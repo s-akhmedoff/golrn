@@ -14,7 +14,6 @@ type Tree struct {
 	Left  *Tree
 }
 
-//	@TODO: Update
 //New - new binary tree
 func New(k int) *Tree {
 
