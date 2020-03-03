@@ -7,5 +7,6 @@ func main() {
 	//exercise.Stringer()
 	//exercise.BTree()
 	//exercise.WebCrawler()
-	lessons.Func()
+	//lessons.Func()
+	lessons.Conc()
 }
