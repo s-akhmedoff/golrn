@@ -1,8 +1,11 @@
 package main
 
-import "lessons"
+import (
+	"exercise"
+	"lessons"
+)
 
 func main() {
 	lessons.Iface()
-	lessons.BSearch()
+	exercise.BSearch()
 }

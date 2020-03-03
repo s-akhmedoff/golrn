@@ -1,4 +1,4 @@
-package lessons
+package exercise
 
 import (
 	"fmt"
