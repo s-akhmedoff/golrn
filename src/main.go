@@ -2,10 +2,10 @@ package main
 
 import (
 	"exercise"
-	"lessons"
 )
 
 func main() {
-	lessons.Iface()
-	exercise.BSearch()
+	//lessons.Iface()
+	//exercise.BSearch()
+	exercise.Cubics()
 }
