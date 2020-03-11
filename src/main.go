@@ -1,11 +1,10 @@
 package main
 
-import (
-	"exercise"
-)
+import "lessons"
 
 func main() {
-	//lessons.Iface()
+	lessons.Structs()
 	//exercise.BSearch()
-	exercise.Cubics()
+	//exercise.Cubics()
+
 }

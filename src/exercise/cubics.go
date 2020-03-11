@@ -52,6 +52,20 @@ func readLinesToCubic(cubcs []cubic, count_cubics int) {
 	fillUp(cubcs, strs)
 }
 
+func do(wrd []byte, cbcs []cubic, n int) (bool, []int) {
+	i, j := len(wrd)-1, 0
+	var arr []int
+
+	for ; i != 0; {
+		if cbcs[j].isIn(wrd[i]) {
+			arr = append(arr, j)
+
+		}
+	}
+
+	return false, nil
+}
+
 func Cubics() {
 
 	word := getWord()
@@ -62,23 +76,7 @@ func Cubics() {
 
 	readLinesToCubic(cubics, n)
 
-	algo := func() []int {
-		res := []int{}
-		for i := 0; i < n-1; {
-			for index, value := range word_latters {
-				if cubics[i].isIn(value) {
-					word_latters = append(word_latters[:index], word_latters[index+1:]...)
-					res = append(res, i)
-				} else {
-					i++
-					break
-				}
-			}
-		}
-		return res
-	}
 
-	fmt.Println(algo())
 
 	fmt.Println(word)
 	fmt.Println(word_latters)

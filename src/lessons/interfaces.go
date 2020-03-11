@@ -5,7 +5,7 @@ import (
 )
 
 type some interface {
-	upgrade(delta interface{})
+	upgrade(delta []interface{})
 }
 
 type foo struct {
@@ -20,29 +20,21 @@ type bar struct {
 	bru foo
 }
 
-func (f *foo) upgrade(delta interface{}) {
-	switch delta.(type) {
-	case int:
-		f.first = delta.(int)
-	case float64:
-		f.second = delta.(float64)
-	case string:
-		f.third = delta.(string)
+func (f *foo) upgrade(delta []interface{}) {
+	for _, v := range delta {
+		switch v.(type) {
+		case string:
+			fmt.Println(v)
+
+		}
 	}
 }
 
-func (b *bar) upgrade(delta interface{}) {
-	switch delta.(type) {
-	case int:
-		b.bro = delta.(int)
-	case string:
-		b.bra = delta.(string)
-	case foo:
-		b.bru = delta.(foo)
-	}
+func (b *bar) upgrade(delta []interface{}) {
+	fmt.Println(delta)
 }
 
-func somer(s some, multiply interface{}) {
+func somer(s some, multiply []interface{}) {
 	s.upgrade(multiply)
 }
 
@@ -62,7 +54,7 @@ func Iface() {
 
 	fmt.Println(f, b)
 
-	somer(&f, 2)
-	somer(&b, "hello")
+	somer(&f, []interface{}{1, "str", 2.2})
+	somer(&b, []interface{}{1, 2.2, f})
 
 }
