@@ -1,12 +1,12 @@
 package main
 
 import (
-	"intership"
+	"internship"
 )
 
 func main() {
 	//lessons.Iface()
 	//exercise.BSearch()
 	//lessons.Methods()
-	intership.Exercise()
+	internship.Exercise()
 }

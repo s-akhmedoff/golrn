@@ -1,4 +1,4 @@
-package intership
+package internship
 
 import (
 	"fmt"
