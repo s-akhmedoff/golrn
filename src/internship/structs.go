@@ -1,6 +1,7 @@
 package internship
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -23,31 +24,29 @@ type task struct {
 type contactList []contact
 type taskList []task
 
-func (t *taskList) addTask(tsk task) task {
+func (t *taskList) AddTask(tsk task) task {
 	*t = append(*t, tsk)
 	return tsk
 }
 
-func (t *taskList) removeTask(id int) bool {
+func (t *taskList) RemoveTask(id int) error {
 	for i, v := range *t {
 		if v.id == id {
 			*t = append((*t)[:i], (*t)[i+1:]...)
-			return true
+			return nil
 		}
 	}
-	fmt.Println("No task with such ID")
-	return false
+	return errors.New("can not remove task")
 }
 
-func (t *taskList) editTask(id int, tsk task) bool {
+func (t *taskList) EditTask(id int, tsk task) error {
 	for i, v := range *t {
 		if v.id == id {
 			(*t)[i] = tsk
-			return true
+			return nil
 		}
 	}
-	fmt.Println("No task with such ID")
-	return false
+	return errors.New("can not edit task")
 }
 
 func (t *taskList) showTask(id int) bool {
@@ -131,17 +130,17 @@ func Structs() {
 		context:  "Show it!",
 	}
 
-	project_tasks.addTask(task1)
-	project_tasks.addTask(task2)
-	project_tasks.addTask(task3)
+	project_tasks.AddTask(task1)
+	project_tasks.AddTask(task2)
+	project_tasks.AddTask(task3)
 
 	project_tasks.showAllTasks()
 
-	project_tasks.removeTask(0)
+	project_tasks.RemoveTask(0)
 
 	project_tasks.showAllTasks()
 
-	project_tasks.editTask(2, task{
+	project_tasks.EditTask(2, task{
 		id:       2,
 		priority: HIGH,
 		context:  "foobar!",

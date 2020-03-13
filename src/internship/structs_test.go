@@ -23,8 +23,7 @@ func TestTaskList_AddTask(t *testing.T) {
 func TestTaskList_RemoveTask(t *testing.T) {
 	tempTask := task{id: 0, priority: LOW, context: "null"}
 	tempList.AddTask(tempTask)
-	result := tempList.RemoveTask(0)
-	if !result {
-		t.Errorf("Can not delete")
+	result := tempList.RemoveTask(0); if result != nil {
+		t.Errorf("%v", result)
 	}
 }

@@ -1,6 +1,9 @@
 package main
 
-import "internship"
+import (
+	"fmt"
+	"internship"
+)
 
 func main() {
 	//lessons.Iface()
@@ -8,4 +11,5 @@ func main() {
 	//lessons.Methods()
 	//internship.Exercise()
 	internship.Structs()
+	fmt.Println("Hello From Docker!")
 }

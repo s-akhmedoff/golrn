@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  main:
+    image: golang:latest
+    volumes:
+    - .:/go
+    working_dir: /go
+    command: go run src/main.go
+
+  test:
+    image: golang:latest
+    volumes:
+    - .:/go
+    working_dir: /go
+    command: go test internship
