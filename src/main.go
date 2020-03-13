@@ -1,12 +1,11 @@
 package main
 
-import (
-	"internship"
-)
+import "internship"
 
 func main() {
 	//lessons.Iface()
 	//exercise.BSearch()
 	//lessons.Methods()
-	internship.Exercise()
+	//internship.Exercise()
+	internship.Structs()
 }
