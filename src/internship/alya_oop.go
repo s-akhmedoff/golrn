@@ -28,15 +28,22 @@ type Helper struct {
 }
 
 func NewDeveloper(prog_language, status string, task task) *Developer {
-	developer := new(Developer)
-	developer.progLanguage, developer.status, developer.currentTask = prog_language, status, task
-	return developer
+	return &Developer{
+		progLanguage: prog_language,
+		status:       status,
+		currentTask:  task,
+	}
 }
 
 func NewHelper(prog_language, status string, task task, rank int) *Helper {
-	helper := new(Helper)
-	helper.progLanguage, helper.status, helper.currentTask, helper.rank = prog_language, status, task, rank
-	return helper
+	return &Helper{
+		Developer: Developer{
+			progLanguage: prog_language,
+			status:       status,
+			currentTask:  task,
+		},
+		rank: rank,
+	}
 }
 
 func (d Developer) getProgLanguage() string {
