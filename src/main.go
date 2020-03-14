@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"golrn/src/internship"
-)
+import "golrn/src/internship"
 
 func main() {
 	//lessons.Iface()
@@ -11,6 +8,6 @@ func main() {
 	//lessons.Methods()
 	//internship.Exercise()
 	//internship.Structs()
-	internship.GoMOD()
-	fmt.Println("Hello From Docker!")
+	//internship.GoMOD()
+	internship.OOP()
 }
