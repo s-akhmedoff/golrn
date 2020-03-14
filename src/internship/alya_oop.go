@@ -14,7 +14,7 @@ const (
 type Getters interface {
 	getProgLanguage() string
 	getStatus() string
-	getTask() task
+	getTask() string
 }
 
 type Developer struct {
@@ -27,24 +27,15 @@ type Helper struct {
 	rank int
 }
 
-func NewDeveloper(params ...interface{}) *Developer {
+func NewDeveloper(prog_language, status string, task task) *Developer {
 	developer := new(Developer)
-
-	developer.progLanguage = params[0].(string)
-	developer.status = params[1].(string)
-	developer.currentTask = params[2].(task)
-
+	developer.progLanguage, developer.status, developer.currentTask = prog_language, status, task
 	return developer
 }
 
-func NewHelper(params ...interface{}) *Helper {
+func NewHelper(prog_language, status string, task task, rank int) *Helper {
 	helper := new(Helper)
-
-	helper.progLanguage = params[0].(string)
-	helper.status = params[1].(string)
-	helper.currentTask = params[2].(task)
-	helper.rank = params[3].(int)
-
+	helper.progLanguage, helper.status, helper.currentTask, helper.rank = prog_language, status, task, rank
 	return helper
 }
 
@@ -56,8 +47,8 @@ func (d Developer) getStatus() string {
 	return d.status
 }
 
-func (d Developer) getTask() task {
-	return d.currentTask
+func (d Developer) getTask() string {
+	return d.currentTask.context
 }
 
 func (d *Developer) setProgLanguage(prog_language string) (old, new string) {
@@ -97,13 +88,16 @@ func getStatus(g Getters) string {
 	return g.getStatus()
 }
 
-func getTask(g Getters) task {
+func getTask(g Getters) string {
 	return g.getTask()
 }
 
 func OOP() {
 	dev1 := NewDeveloper("C++", "free", task{context: "Build project and Debug"})
 	helper1 := NewHelper("C", "free", task{context: "Write Makefile"}, MEDIUM_RANK)
-	fmt.Println(dev1, helper1)
+	fmt.Println(getProgLanguage(helper1), getProgLanguage(dev1))
+	fmt.Println(dev1)
+	fmt.Println(helper1)
+	fmt.Println(getTask(dev1), getTask(helper1))
 
 }
