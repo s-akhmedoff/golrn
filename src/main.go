@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"internship"
+	"golrn/src/internship"
 )
 
 func main() {
@@ -10,6 +10,7 @@ func main() {
 	//exercise.BSearch()
 	//lessons.Methods()
 	//internship.Exercise()
-	internship.Structs()
+	//internship.Structs()
+	internship.GoMOD()
 	fmt.Println("Hello From Docker!")
 }
